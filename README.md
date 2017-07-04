@@ -14,8 +14,6 @@ Follow the [dev setup guide](https://alan-eu.atlassian.net/wiki/display/101/Dev+
 
 - Create and prepare your virtual env:
 
-Create the virtual env (you might need to replace `python3` by a complete path if you use Anaconda, like `/usr/local/bin/python3`):
-
 ```
 python3 -m venv env
 ```
@@ -47,21 +45,31 @@ On top, you'll get the `client_id` and the `client_secret`. You will need these 
 You also need to generate a random id (it can be anything) as your `app.secret_key`.
 
 ### Setup ngrok to handle callbacks
-Install ngrok from [here](https://ngrok.com/download).
+- Install ngrok from [here](https://ngrok.com/download).
 
-Run it with your favorite port (we'll use 5000 here):
+- Run it with your favorite port (we'll use 5000 here):
 
-`ngrok http 5000`
+```
+ngrok http 5000
+```
 
-Ngrok will provide you with a callback address, such as `https://7f132061.ngrok.io`.
+- Ngrok will provide you with a callback address, such as: 
+```
+https://7f132061.ngrok.io
+```
 
-Put it in the `Urls de callback` from France Connect's partenaire page.
+- Put it in the `Urls de callback` from France Connect's partenaire page.
 
-You can also add `https://7f132061.ngrok.io/france_connect` as an `Url de déconnexion`.
+- You can also add `https://7f132061.ngrok.io/france_connect` as an `Url de déconnexion`.
 
 ## Run the server
-`python app.py` should run on `127.0.0.1:5000`.
-You can access `127.0.0.1:5000/france_connect` to test your endpoint.
+- Run the server on `127.0.0.1:5000`:
+
+```
+python app.py
+```
+
+- You can access [](http://127.0.0.1:5000/france_connect) to test your endpoint.
 
 ### Create test data
 You can create test data using France Connect's tool [here](https://fip1.integ01.dev-franceconnect.fr/user/create).
