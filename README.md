@@ -8,7 +8,7 @@ After cloning the repo, here are the few steps to get you started:
 
 ### Python
 
-Follow the [dev setup guide](https://alan-eu.atlassian.net/wiki/display/101/Dev+setup) to install Python 3.
+Install Python 3. You can follow [this guide](http://python-guide-pt-br.readthedocs.io/en/latest/).
 
 ### Flask server
 
