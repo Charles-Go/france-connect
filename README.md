@@ -1,6 +1,7 @@
 # france-connect
 
-This tutorial is meant to set up with a working test for France Connect using Python/Flask. 
+This tutorial is meant to set up with a working test for France Connect using Python/Flask.
+The documentation for France Connect is here: partenaires.franceconnect.gouv.fr
 
 ## Installation
 
