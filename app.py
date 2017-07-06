@@ -17,15 +17,15 @@ fc_url_userinfo = fc_url + '/api/v1/userinfo'
 fc_url_logout = fc_url + '/api/v1/logout'
 
 
-@app.route('/france_connect', methods=['GET', 'POST'])
-def france_connect():
+@app.route('/', methods=['GET', 'POST'])
+def root():
     if request.method == 'POST':
         data = {
             'response_type': 'code',
             'client_id': client_id,
             'state': 'test',
             'nonce': 'test',
-            'redirect_uri': url_callback,
+            'redirect_uri': url_callback + '/france_connect',
             'scope': 'openid identite_pivot something_obviously_wrong',
         }
         return redirect(fc_url_authorize + '?' + urlencode(data))
@@ -43,13 +43,13 @@ def france_connect():
         return render_template_string(html)
 
 
-@app.route('/', methods=['GET', 'POST'])
-def main():
+@app.route('/france_connect', methods=['GET', 'POST'])
+def france_connect():
     print(request.args)
     code = request.args.get('code')
     data = {
         'grant_type': 'authorization_code',
-        'redirect_uri': url_callback,
+        'redirect_uri': url_callback + '/france_connect',
         'client_id': client_id,
         'client_secret': client_secret,
         'code': code,
@@ -88,7 +88,7 @@ def logout():
     data = {
         'id_token_hint': id_token,
         'state': 'test',
-        'post_logout_redirect_uri': url_callback + '/france_connect',
+        'post_logout_redirect_uri': url_callback,
     }
     return redirect(fc_url_logout + '?' + urlencode(data))
 
