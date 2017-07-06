@@ -1,5 +1,9 @@
 # france-connect
 
+France Connect is an identification and authentication system for people which is managed by the French Government.
+
+Alan believes in simplifying the user experience with all formalities, and contributing to France Connect fits in this mission.
+
 This tutorial is meant to set up with a working test for France Connect using Python/Flask.
 
 The documentation for France Connect is here: https://partenaires.franceconnect.gouv.fr
@@ -14,27 +18,12 @@ Install Python 3. You can follow [this guide](http://python-guide-pt-br.readthed
 
 ### Flask server
 
-- Create and prepare your virtual env:
+- Create and prepare your virtual env and activate it:
 
 ```
 python3 -m venv env
-```
-
-- Activate it: 
-
-```
 source env/bin/activate
-```
-
-- Upgrade pip:
-
-```
 pip install --upgrade pip
-```
-
-- Install dependencies:
-
-```
 pip install -r requirements.txt
 ```
 
@@ -59,10 +48,11 @@ ngrok http 5000
 ```
 https://7f132061.ngrok.io
 ```
+You'll want to use `https://7f132061.ngrok.io/france_connect` as the callback address.
 
-- Put it in the `Urls de callback` from France Connect's partenaire page.
+- Put the callback address with  in the `Urls de callback` from France Connect's partenaire page.
 
-- You can also add `https://7f132061.ngrok.io/france_connect` as an `Url de déconnexion`.
+- You can also add `https://7f132061.ngrok.io` as an `Url de déconnexion`.
 
 ## Run the server
 - Run the server on `127.0.0.1:5000`:
@@ -71,10 +61,10 @@ https://7f132061.ngrok.io
 python app.py
 ```
 
-- You can access [](http://127.0.0.1:5000/france_connect) to test your endpoint.
+- You can access [](http://127.0.0.1:5000) to test your endpoint.
 
 ### Create test data
 You can create test data using France Connect's tool [here](https://fip1.integ01.dev-franceconnect.fr/user/create).
 
 ## Enjoy
-And you're all set to test France Connect by clicking on your [local site](http://127.0.0.1:5000/france_connect)!
+And you're all set to test France Connect by clicking on your [local site](http://127.0.0.1:5000)!
